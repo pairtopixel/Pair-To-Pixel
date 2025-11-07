@@ -6,6 +6,7 @@ import ServicesSection from "./components/ServicesSection";
 import backgroundImage from "./assets/Website resouces/Frame-1.png"; // Ensure this path is correct
 import PowerbankScene from './components/PowerbankScene'; 
 import WhyItMatters from './components/WhyItMatters'; 
+import ProductShowcase from "./components/ProductShowcase";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,13 +30,11 @@ const App = () => {
         }}
       >
         <Hero />
+         <ProductShowcase />
         <ServicesSection />
-        <WhyItMatters />
-        {/* The 3D component is correctly placed here */}
-        <PowerbankScene /> 
+        <WhyItMatters /> 
       </main>
     </div>
   );
 };
-
 export default App;
