@@ -1,6 +1,6 @@
 import React, { Suspense, useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, PerspectiveCamera, Html } from '@react-three/drei';
+import { OrbitControls, Environment, Html } from '@react-three/drei';
 import { EarbudsModel } from './EarbudsModel';
 import { MouseModel } from './MouseModel';
 import { PowerbankModelAlt } from './PowerbankModelAlt';
@@ -31,11 +31,43 @@ const ProductCard = ({ ModelComponent, title, scale = 1, autoRotate = true, came
       <Canvas
         camera={{ position: cameraPosition, fov: 50 }}
         style={{ background: 'transparent' }}
+        gl={{ 
+          antialias: true,
+          alpha: true,
+          powerPreference: "high-performance"
+        }}
       >
         <Suspense fallback={<Html center><div className="text-white">Loading...</div></Html>}>
-          <ambientLight intensity={0.5} />
-          <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} />
-          <pointLight position={[-10, -10, -10]} intensity={0.5} />
+          
+          {/* Enhanced Lighting Setup */}
+          <ambientLight intensity={1.2} />
+          <directionalLight 
+            position={[5, 5, 5]} 
+            intensity={2} 
+            castShadow
+          />
+          <directionalLight 
+            position={[-5, 5, 5]} 
+            intensity={1.5} 
+          />
+          <spotLight 
+            position={[10, 10, 10]} 
+            angle={0.3} 
+            penumbra={1} 
+            intensity={2} 
+          />
+          <pointLight 
+            position={[-10, -10, -10]} 
+            intensity={1} 
+          />
+          <pointLight 
+            position={[0, 10, 0]} 
+            intensity={1.5} 
+            color="#ffffff"
+          />
+          
+          {/* Environment for reflections and ambient lighting */}
+          <Environment preset="sunset" intensity={1.5} />
           
           {autoRotate && !isHovered ? (
             <RotatingModel speed={0.5}>
@@ -57,9 +89,11 @@ const ProductCard = ({ ModelComponent, title, scale = 1, autoRotate = true, came
       </Canvas>
       
       {/* Title Overlay */}
-      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-        <h3 className="text-white text-lg font-semibold text-center">{title}</h3>
-      </div>
+      {title && (
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+          <h3 className="text-white text-lg font-semibold text-center">{title}</h3>
+        </div>
+      )}
     </div>
   );
 };
@@ -73,30 +107,27 @@ const ProductShowcase = () => {
       </h2>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-        {/* Left Product - Powerbank  */}
-      <ProductCard 
+        {/* Left Product - Powerbank */}
+        <ProductCard 
           ModelComponent={PowerbankModelAlt}
-          title="Power Bank"
-          scale={0.5}
+          scale={0.57}
           cameraPosition={[0, 0, 8]}
         />
         
         {/* Center Product - Mouse (Larger but zoomed out more) */}
-        <ProductCard 
-          ModelComponent={MouseModel}
-          title="Gaming Mouse"
-          scale={0.8}
-          cameraPosition={[0, 0, 10]}
-        />
-        
-        {/* Right Product - Earbuds */}
-           <ProductCard 
+       
+         <ProductCard 
           ModelComponent={EarbudsModel}
-          title="Premium Earbuds"
-          scale={0.8}
+          scale={0.9}
           cameraPosition={[0, 0, 5]}
         />
+        {/* Right Product - Earbuds */}
        
+         <ProductCard 
+          ModelComponent={MouseModel}
+          scale={1}
+          cameraPosition={[0, 0, 10]}
+        />
       </div>
     </section>
   );

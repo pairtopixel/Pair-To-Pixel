@@ -1,12 +1,5 @@
 // src/components/ServicesSection.jsx
-
 import React from "react";
-// Import the services data and icons (assuming they are in src/data/servicesData.js)
-// NOTE: I'll include the data array here for completeness, 
-// but in a real project, keep it in a separate file (src/data/servicesData.js) as you originally planned.
-
-// --- Start of Data Array for demonstration (replace with your import if in a separate file) ---
-// You MUST ensure these image paths are correct and the assets exist!
 import icon1 from "../assets/Website resouces/icons/1.png";
 import icon2 from "../assets/Website resouces/icons/2.png";
 import icon3 from "../assets/Website resouces/icons/3.png";
@@ -66,69 +59,50 @@ export const services = [
       "Helping your brand get seen and heard. From campaigns to posts, everything is set up to reach the right people, the right way.",
   },
 ];
-// --- End of Data Array ---
 
-
-/**
- * ServiceCard Component
- * Renders an individual service card with the specified styling.
- */
 const ServiceCard = ({ icon, title, description }) => (
   <div className="
       bg-gradient-to-b from-red-600 to-red-800 
       rounded-xl 
-      p-6 md:p-8 
-      py-10 md:py-12  
+      p-4 sm:p-6 md:p-8 
+      py-8 sm:py-10 md:py-12  
       flex flex-col justify-start items-start 
       text-white shadow-2xl 
       hover:from-red-700 hover:to-red-900 
       transition duration-300 transform hover:scale-[1.02]
       h-full 
   ">
-    
-    {/* Icon Container: Increased size and added justify-end for right alignment */}
-    {/* The w-full ensures the flex container spans the card width, allowing justify-end to work */}
-    <div className="mb-6 w-full flex justify-end items-center"> 
+    <div className="mb-4 sm:mb-6 w-full flex justify-end items-center"> 
       <img 
         src={icon} 
         alt={title} 
-        className="w-24 h-24 object-contain" // <--- KEY CHANGE: Increased icon size (w-16 h-16)
+        className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
         style={{ filter: 'brightness(0) invert(1) drop-shadow(0 0 4px rgba(255, 255, 255, 0.4))' }} 
       />
     </div>
     
-    {/* Title */}
     <h3 className="
-      text-lg font-bold tracking-widest uppercase mb-4 
+      text-sm sm:text-base md:text-lg font-bold tracking-widest uppercase mb-3 sm:mb-4 
       text-yellow-400 
     ">
       {title}
     </h3>
     
-    {/* Description */}
-    <p className="text-base font-light leading-relaxed opacity-90">
+    <p className="text-xs sm:text-sm md:text-base font-light leading-relaxed opacity-90">
       {description}
     </p>
   </div>
 );
 
-/**
- * ServicesSection Component
- * Renders the main section with the title, cards, and call-to-action buttons.
- */
 const ServicesSection = () => {
   return (
-    // Applied a darker, subtle vertical gradient to the main section background
-    <div className="w-full min-h-screen  py-16 md:py-24 px-4 sm:px-6 lg:px-8  "
-    >
+    <div className="w-full min-h-screen py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8">
       
-      {/* Header */}
-      <h2 className="text-4xl md:text-5xl font-extrabold text-white text-center mb-12 md:mb-16 tracking-wide">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white text-center mb-8 sm:mb-12 md:mb-16 tracking-wide">
         OUR SERVICES
       </h2>
       
-      {/* Cards Grid */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
         {services.map((service, index) => (
           <ServiceCard
             key={index}
@@ -138,23 +112,20 @@ const ServicesSection = () => {
           />
         ))}
         
-        {/* Helper div for the 3-column layout when there are 8 cards */}
         {services.length % 3 === 2 && (
-          <div className="hidden lg:block">
-            {/* This empty div ensures the two cards in the last row align to the left */}
-          </div>
+          <div className="hidden lg:block"></div>
         )}
       </div>
 
-      {/* Buttons / Call-to-Action */}
-      <div className="flex justify-center mt-16 md:mt-24 space-x-6">
+      <div className="flex flex-col sm:flex-row justify-center items-center mt-12 sm:mt-16 md:mt-24 gap-4 sm:gap-6 px-4">
         <button
           className="
+            w-full sm:w-auto
             bg-red-900 
             text-white 
             font-semibold 
-            py-3 px-8 
-            text-sm 
+            py-2.5 sm:py-3 px-6 sm:px-8 
+            text-xs sm:text-sm 
             uppercase 
             tracking-wider 
             rounded 
@@ -171,11 +142,12 @@ const ServicesSection = () => {
         </button>
         <button
           className="
+            w-full sm:w-auto
             bg-yellow-500 
             text-black 
             font-semibold 
-            py-3 px-8 
-            text-sm 
+            py-2.5 sm:py-3 px-6 sm:px-8 
+            text-xs sm:text-sm 
             uppercase 
             tracking-wider 
             rounded 
