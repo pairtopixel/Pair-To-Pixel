@@ -111,19 +111,21 @@ import React, { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 // import thumbnail1 from '../assets/Rectangle 3.png';
-import thumbnail1 from '../assets/Video1.jpg';
-import thumbnail2 from '../assets/Video1.png';
-import thumbnail3 from '../assets/video3.jpg.png';
+import thumbnail1 from '../assets/video1.jpg';
+import thumbnail2 from '../assets/Video2.png';
+import thumbnail3 from '../assets/video3.jpg';
 
 // Data structure with YouTube links
 const cardData = [
   {
     id: 1,
-    image: thumbnail1,
-    title: "The #1 Visual Mistake That’s Costing You Clients (And How to Fix It)",
-    description: "Discover why average designs cost usinesses real clients, and how powerful visuals can grab attention, build trust, and boost sales.",
-    delay: 0.5,
-    videoLink: 'https://youtu.be/F7mLAPKjR9I?si=ae1gZcc2fAqewqOY',
+
+
+      image: thumbnail3,
+    title: "The Secret Weapon Behind Successful Businesses | 3D Product Modeling & Animation | Pair to Pixel",
+    description: "Bring your products to life with stunning 3D animation that grabs attention and builds trust. From startups to established brands, it’s the secret to standing out and driving sales.",
+    delay: 0.3,
+    videoLink: 'https://youtu.be/VzUFvC6pdsk?si=tHWMAeglV_W1FV1q',
   },
     {
     id: 2,
@@ -135,11 +137,11 @@ const cardData = [
   },
   {
     id: 3,
-    image: thumbnail3,
-    title: "The Secret Weapon Behind Successful Businesses | 3D Product Modeling & Animation | Pair to Pixel",
-    description: "Bring your products to life with stunning 3D animation that grabs attention and builds trust. From startups to established brands, it’s the secret to standing out and driving sales.",
-    delay: 0.3,
-    videoLink: 'https://youtu.be/VzUFvC6pdsk?si=tHWMAeglV_W1FV1q',
+    image: thumbnail1,
+    title: "The #1 Visual Mistake That’s Costing You Clients (And How to Fix It)",
+    description: "Discover why average designs cost usinesses real clients, and how powerful visuals can grab attention, build trust, and boost sales.",
+    delay: 0.5,
+    videoLink: 'https://youtu.be/F7mLAPKjR9I?si=ae1gZcc2fAqewqOY',
   }, 
 
 ];
