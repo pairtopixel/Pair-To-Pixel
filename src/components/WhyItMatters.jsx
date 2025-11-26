@@ -111,35 +111,35 @@ import React, { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 // import thumbnail1 from '../assets/Rectangle 3.png';
-import thumbnail1 from '../assets/Rectangle 6.jpg';
-import thumbnail2 from '../assets/Rectangle 5.png';
-import thumbnail3 from '../assets/Rectangle 4.png';
+import thumbnail1 from '../assets/Video1.jpg';
+import thumbnail2 from '../assets/Video1.png';
+import thumbnail3 from '../assets/video3.jpg.png';
 
 // Data structure with YouTube links
 const cardData = [
   {
     id: 1,
-    image: thumbnail3,
-    title: 'From Brief to Final Animation | Full 3D Product Workflow (Client Work Process)',
-    description: 'From a simple client brief to a polished motion video, we handle every stage with care. See how 3D modeling, textures, and lighting come together to make your product look real and ready to shine.',
+    image: thumbnail1,
+    title: "The #1 Visual Mistake That’s Costing You Clients (And How to Fix It)",
+    description: "Discover why average designs cost usinesses real clients, and how powerful visuals can grab attention, build trust, and boost sales.",
     delay: 0.5,
-    videoLink: 'https://youtube.com/shorts/ciDJScjoR64?si=eZxBfw_rpqcAPYvb',
+    videoLink: 'https://youtu.be/F7mLAPKjR9I?si=ae1gZcc2fAqewqOY',
   },
     {
     id: 2,
-    image: thumbnail1,
-    title: 'The #1 Visual Mistake That\'s Costing You Clients (And How to Fix It)',
-    description: 'Discover why average designs cost businesses real clients, and how powerful visuals can grab attention, build trust, and boost sales.',
+    image: thumbnail2,
+    title: ' Stop Wasting Money on Photoshoots — Try 3D Product Visualization',
+    description: 'No location, no studio, no hassle for your product photoshoots. Just premium 3D visuals that make your product shine.',
     delay: 0.1,
-    videoLink: 'https://youtu.be/F7mLAPKjR9I?si=uJgZnAIjIaFsR8FL',
+    videoLink: 'https://youtu.be/qu5PbSOY6kY?si=5h9XLaAhDPfbCZO9',
   },
   {
     id: 3,
-    image: thumbnail2,
-    title: 'Stop Wasting Money on Photoshoots — Try 3D Product Visualization',
-    description: "No location, no studio, no hassle for your product photoshoots. Just premium 3D visuals that make your product shine.",
+    image: thumbnail3,
+    title: "The Secret Weapon Behind Successful Businesses | 3D Product Modeling & Animation | Pair to Pixel",
+    description: "Bring your products to life with stunning 3D animation that grabs attention and builds trust. From startups to established brands, it’s the secret to standing out and driving sales.",
     delay: 0.3,
-    videoLink: 'https://youtu.be/qu5PbSOY6kY?si=RALKLyuoBAaLwYob',
+    videoLink: 'https://youtu.be/VzUFvC6pdsk?si=tHWMAeglV_W1FV1q',
   }, 
 
 ];
